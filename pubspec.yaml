@@ -1,0 +1,8 @@
+name: graficos
+description: Estudo para implementação de API de renderização graficos 2D raster (Bitmap)
+version: 1.0.0
+
+environment:
+  sdk: '>=2.10.0 <3.0.0'
+
+dependencies:
