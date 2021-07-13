@@ -1,5 +1,3 @@
-import 'package:graficos/src/point.dart';
-
 import '../graficos.dart';
 
 class Line {

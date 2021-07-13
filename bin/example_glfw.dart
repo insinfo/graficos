@@ -37,10 +37,9 @@ void main() {
 }
 
 void prepare() {
-//unsigned char * FBptr;
-// Aloca o framebuffer e inicializa suas posições com 0.
+  //unsigned char * FBptr;
+  // Aloca o framebuffer e inicializa suas posições com 0.
   //FBptr = new unsigned char[IMAGE_WIDTH * IMAGE_HEIGHT * 5];
-
   var FBptr = List<int>.filled(IMAGE_WIDTH * IMAGE_HEIGHT * 5, 0);
   for (int i = 0; i < IMAGE_WIDTH * IMAGE_HEIGHT; i++) {
     FBptr[i * 4] = 0;
@@ -48,12 +47,9 @@ void prepare() {
     FBptr[i * 4 + 2] = 0;
     FBptr[i * 4 + 3] = 255;
   }
-
   var textureData = Uint8List.fromList(FBptr);
-
   glClearColor(0.0, 0.7, 0.99, 0.0);
   glViewport(0, 0, IMAGE_WIDTH, IMAGE_HEIGHT);
-
   // Cria uma textura 2D, RGBA (8 bits por componente).
   textures = allocate<Uint32>();
   glGenTextures(1, textures);

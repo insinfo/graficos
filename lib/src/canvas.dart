@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:graficos/graficos.dart';
 
 class Canvas {
@@ -14,19 +12,6 @@ class Canvas {
   }
 
   void drawLine(Line line) {
-    /*if (line.start.y == line.end.y) {
-      for (var i = line.start.x; i <= line.end.x; i++) {
-        stage.setPixel(Point(x: i, y: line.start.y), line.color);
-      }
-    } else if (line.start.x == line.end.x) {
-      for (var i = line.start.y; i <= line.end.y; i++) {
-        stage.setPixel(Point(x: line.start.x, y: i), line.color);
-      }
-    } else {*/
-    //pinta pixel inicial
-    // stage.setPixel(Point(x: line.start.x, y: line.start.y), line.color);
-    //pinta pixel final
-    //stage.setPixel(Point(x: line.end.x, y: line.end.y), line.color);
     int x0 = line.start.x;
     int y0 = line.start.y;
     int x1 = line.end.x;
@@ -54,79 +39,12 @@ class Canvas {
   }
 
   void drawLine2(Line line) {
-    Point initial_p = line.start;
-    Point final_p = line.end;
+    var maior = line.end.y > line.end.x ? line.end.y : line.end.x;
 
-    int posx = initial_p.x;
-    int posy = initial_p.y;
+    var r = Math.findingSlopeOfLine(PointF(x: 0, y: 0), PointF(x: 3, y: 3));
+    print(r);
 
-    int fposx = final_p.x;
-    int fposy = final_p.y;
-
-    bool xdecres; // x decrescente
-    bool ydecres; // y decrescente
-
-    posx > fposx ? xdecres = true : xdecres = false;
-    posy > fposy ? ydecres = true : ydecres = false;
-
-    int dx = (fposx - posx).abs();
-    int dy = (fposy - posy).abs();
-    int decision;
-    int inc_e;
-    int inc_ne;
-
-    Color pixel_color = line.color;
-
-    //var line_size = sqrt(pow(dx, 2) + pow(dy, 2));
-
-    //***************************************************************************
-    // Modificação para desenhar retas com ângulo de 90 graus
-    //***************************************************************************
-    if (dx == 0) {
-      // Verifica se a reta é invariante no eixo x
-      int posi = posy;
-      while (posi <= fposy) {
-        stage.putPixel(posx, posi, pixel_color);
-        ydecres ? posi-- : posi++;
-      }
-      return;
-    }
-
-    //***************************************************************************
-    // Modificação para desenhar retas nos 8 octantes
-    //***************************************************************************
-    if (dy > dx) {
-      decision = (2 * dx) - dy;
-      inc_e = 2 * dx;
-      inc_ne = 2 * (dx - dy);
-      while (posy != fposy) {
-        if (decision <= 0) {
-          decision += inc_e;
-          ydecres ? posy-- : posy++;
-        } else {
-          decision += inc_ne;
-          ydecres ? posy-- : posy++;
-          xdecres ? posx-- : posx++;
-        }
-        stage.putPixel(posx, posy, pixel_color);
-      }
-      return;
-    }
-
-    decision = (2 * dy) - dx;
-    inc_e = 2 * dy;
-    inc_ne = 2 * (dy - dx);
-    while (posx != fposx) {
-      if (decision <= 0) {
-        decision += inc_e;
-        xdecres ? posx-- : posx++;
-      } else {
-        decision += inc_ne;
-        xdecres ? posx-- : posx++;
-        ydecres ? posy-- : posy++;
-      }
-      stage.putPixel(posx, posy, pixel_color);
-    }
+    for (var i = 0; i < maior; i++) {}
   }
 
   String _colorToConsole(Color color) {

@@ -1,5 +1,10 @@
-class Point {
-  int x;
-  int y;
-  Point({this.x, this.y});
+class PointF {
+  double x;
+  double y;
+  PointF({this.x, this.y});
+
+  @override
+  String toString() {
+    return '{x:$x, y:$y}';
+  }
 }

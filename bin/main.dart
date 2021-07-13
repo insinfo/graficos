@@ -9,7 +9,7 @@ void main(List<String> args) async {
 
   // canvas.drawLine(Line(start: Point(x: 0, y: 0), end: Point(x: 0, y: 7), color: Color.red()));
 
-  canvas.drawLine(Line(start: Point(x: 0, y: 0), end: Point(x: 7, y: 7), color: Color.red()));
+  canvas.drawLine(Line(start: Point(x: 0, y: 0), end: Point(x: 7, y: 3), color: Color.red()));
 
   canvas.renderToConsole();
 }
